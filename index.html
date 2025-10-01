@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B&B Safety Assistant</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/public/favicon.png">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/public/logo.png" alt="B&B Logo" class="logo" onerror="this.style.display='none'">
+      <div>
+        <h1>B&B Safety Assistant</h1>
+        <p>Concrete • OSHA/ADOSH • Field-ready answers</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="clearBtn" title="Clear chat">Clear</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <h2>Settings</h2>
+      <label>API Provider
+        <select id="provider">
+          <option value="openai" selected>OpenAI</option>
+        </select>
+      </label>
+
+      <label>Model
+        <select id="model">
+          <option value="gpt-4o-mini" selected>gpt-4o-mini</option>
+          <option value="gpt-4o">gpt-4o</option>
+          <option value="gpt-4.1-mini">gpt-4.1-mini</option>
+        </select>
+      </label>
+
+      <label>System Prompt
+        <textarea id="systemPrompt" rows="10" placeholder="You are a Safety Director/Manager for a concrete subcontractor in Arizona. Focus on OSHA 29 CFR 1926, ADOSH, ANSI; answer briefly with citations and steps that keep crews working and compliant. Avoid extras beyond OSHA/ADOSH requirements."></textarea>
+      </label>
+
+      <details>
+        <summary>Branding</summary>
+        <label>Header title
+          <input id="siteTitle" placeholder="B&B Safety Assistant">
+        </label>
+        <label>Accent color
+          <input id="accentColor" type="color" value="#0f766e">
+        </label>
+      </details>
+    </aside>
+
+    <section class="chat">
+      <div id="messages" class="messages"></div>
+
+      <form id="chatForm" class="composer">
+        <input id="userInput" type="text" placeholder="Ask a safety question… (e.g., 'What are OSHA ladder rules?')" autocomplete="off" required>
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+      <p class="legal">This assistant provides general safety information. Always verify site-specific requirements and consult OSHA/ADOSH regulations.</p>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
